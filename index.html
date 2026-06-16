@@ -3,38 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML 1-1반 실습</title>
+    <title>HTML5 1-1반 실습 포트폴리오</title>
     <style>
-        *{
+        /* 기본 스타일 초기화 및 모던 폰트 설정 */
+        * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+            letter-spacing: -0.03em;
         }
-        .all{
-            width: 1200px;
+
+        body {
+            background-color: #f8fafc; /* 부드럽고 밝은 그레이 톤 배경 */
+            color: #1e293b;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 전체 컨테이너 */
+        .all {
+            width: 100%;
+            max-width: 1000px; /* 전체적인 폭을 안정적으로 조절 */
             margin: 0 auto;
         }
-        header{
-            height: 80px;
+
+        /* 헤더 디자인 */
+        header {
             text-align: center;
+            margin-bottom: 50px;
         }
-        section{
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f172a; /* 신뢰감을 주는 딥 네이비 블랙 */
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        header h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #3b82f6; /* 차분한 블루 포인트 단색 */
+            border-radius: 2px;
+        }
+
+        /* 콘텐츠 영역 (Grid 레이아웃으로 변경하여 중앙 정렬 자동화) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개씩 배치 */
+            gap: 24px; /* 카드 사이의 일정한 간격 */
+            justify-content: center;
+        }
+
+        /* 카드 개별 디자인 */
+        .div {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 160px;
             text-align: center;
-            height: 120px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        .div{
-            width: 300px;
-            height: 100px;
-            border: 1px solid lightgray;
-            border-radius: 10px;
-            margin-left: 5px;
-            float: left;
+
+        /* 마우스 오버 효과 (AI스럽지 않은 자연스러운 인터랙션) */
+        .div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
         }
-        .div a{
+
+        /* 타이틀 스타일 */
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #334155;
+            line-height: 1.5;
+            word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 */
+        }
+
+        /* 링크 버튼 스타일 */
+        .div a {
             text-decoration: none;
-            color: black;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2563eb; /* 신뢰감을 주는 블루 */
+            background-color: #eff6ff;
+            padding: 8px 18px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            margin-top: 15px;
         }
-        .ml{
-            margin-left: 142.5px;
+
+        .div a:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        /* 반응형 대응 (화면이 작아지면 1열 혹은 2열로 자동 변경) */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -43,48 +134,45 @@
         <header>
             <h1>HTML5 1-1반 실습</h1>
         </header>
-        <section>
-            <div class="div ml">
+        
+        <div class="grid-container">
+            <div class="div">
                 <h3>유한대학교 컴퓨터공학과<br>게임콘텐츠전공</h3>
-                <a href="https://vr.yuhan.ac.kr">클릭하세요~</a>
+                <a href="https://vr.yuhan.ac.kr">바로가기</a>
             </div>
             <div class="div">
                 <h3>최현빈의 홈페이지</h3>
-                <a href="flexEx.html">클릭하세요~</a>
+                <a href="flexEx.html">바로가기</a>
             </div>
             <div class="div">
                 <h3>z-index 실습</h3>
-                <a href="zIndex.html">클릭하세요~</a>
+                <a href="zIndex.html">바로가기</a>
             </div>
-        </section>
-        <section>
-            <div class="div ml">
-                <h3>박스에 캐릭터 배치 실습(flex 활용)</h3>
-                <a href="boxTest_ch.html">클릭하세요~</a>
+            <div class="div">
+                <h3>박스에 캐릭터 배치 실습<br>(flex 활용)</h3>
+                <a href="boxTest_ch.html">바로가기</a>
             </div>
             <div class="div">
                 <h3>티몬 홈페이지</h3>
-                <a href="#">클릭하세요~</a>
+                <a href="#">바로가기</a>
             </div>
             <div class="div">
                 <h3>티몬 홈페이지</h3>
-                <a href="#">클릭하세요~</a>
-            </div>
-        </section>
-        <section>
-            <div class="div ml">
-                <h3>티몬 홈페이지</h3>
-                <a href="#">클릭하세요~</a>
+                <a href="#">바로가기</a>
             </div>
             <div class="div">
                 <h3>티몬 홈페이지</h3>
-                <a href="#">클릭하세요~</a>
+                <a href="#">바로가기</a>
             </div>
             <div class="div">
                 <h3>티몬 홈페이지</h3>
-                <a href="#">클릭하세요~</a>
+                <a href="#">바로가기</a>
             </div>
-        </section>
+            <div class="div">
+                <h3>티몬 홈페이지</h3>
+                <a href="#">바로가기</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
